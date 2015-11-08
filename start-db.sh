@@ -2,14 +2,17 @@
 
 get_script_dir () {
      SOURCE="${BASH_SOURCE[0]}"
+
      while [ -h "$SOURCE" ]; do
           DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
           SOURCE="$( readlink "$SOURCE" )"
           [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
      done
-     $( cd -P "$( dirname "$SOURCE" )" )
+     cd -P "$( dirname "$SOURCE" )"
      pwd
 }
+
+echo $(get_script_dir)
 
 sudo docker rm --force test-postgres 2> /dev/null | true
 sudo docker run --name test-postgres \
