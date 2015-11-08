@@ -3,7 +3,7 @@ CREATE TABLE job_result
 (
   request_id character varying(32) NOT NULL,
   node character varying(32) NOT NULL,
-  timestamp timestamp,
+  timestamp timestamp default now(),
   data text,
   error character varying(256),
 
