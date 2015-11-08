@@ -12,8 +12,6 @@ get_script_dir () {
      pwd
 }
 
-echo $(get_script_dir)
-
 sudo docker rm --force test-postgres 2> /dev/null | true
 sudo docker run --name test-postgres \
     -v $(get_script_dir):/tests \
