@@ -1,3 +1,3 @@
 #!/bin/sh -e
-sudo docker stop analyticsdb
-sudo docker rm analyticsdb
+sudo docker stop analyticsdb > /dev/null
+sudo docker rm analyticsdb > /dev/null
