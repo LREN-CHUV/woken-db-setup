@@ -12,10 +12,16 @@ get_script_dir () {
      pwd
 }
 
-sudo docker rm --force analyticsdb 2> /dev/null | true
-sudo docker run --name analyticsdb \
+if groups $USER | grep &>/dev/null '\bdocker\b'; then
+    DOCKER=docker
+else
+    DOCKER=sudo docker
+fi
+
+$DOCKER rm --force analyticsdb 2> /dev/null | true
+$DOCKER run --name analyticsdb \
     -v $(get_script_dir):/tests \
     -e POSTGRES_PASSWORD=test -d postgres:9.4.4
 
-sudo docker exec analyticsdb \
+$DOCKER exec analyticsdb \
     /bin/bash -c 'while ! pg_isready -U postgres ; do sleep 1; done && exec psql -U postgres -f /tests/create.sql'
