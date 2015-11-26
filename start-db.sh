@@ -29,6 +29,11 @@ while getopts ":p:" opt; do
 done
 shift $((OPTIND -1))
 
+if pgrep -lf sshuttle > /dev/null ; then
+  echo "sshuttle detected. Please close this program as it messes with networking and prevents Docker links to work"
+  exit 1
+fi
+
 if groups $USER | grep &>/dev/null '\bdocker\b'; then
     DOCKER="docker"
 else
