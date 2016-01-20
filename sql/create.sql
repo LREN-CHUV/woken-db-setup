@@ -1,7 +1,7 @@
 
 CREATE TABLE job_result
 (
-  job_id character varying(32) NOT NULL,
+  job_id character varying(128) NOT NULL,
   node character varying(32) NOT NULL,
   timestamp timestamp default now(),
   data text,
