@@ -14,3 +14,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
     org.label-schema.vendor="CHUV LREN" \
     org.label-schema.docker.dockerfile="Dockerfile" \
     org.label-schema.schema-version="1.0"
+
+COPY sql/create.sql /flyway/sql/V1_0__create.sql
+
+CMD ["migrate"]
