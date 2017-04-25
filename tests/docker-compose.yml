@@ -1,0 +1,40 @@
+version: '2'
+
+services:
+
+  woken_db:
+    image: "postgres:9.6.2-alpine"
+    container_name: "woken-db"
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=woken
+      - POSTGRES_PASSWORD=woken
+
+  wait_dbs:
+    image: "waisbrot/wait"
+    links:
+      - "woken_db:woken_db"
+    environment:
+      - TARGETS=woken_db:5432
+
+  woken_db_setup:
+    image: "hbpmip/woken-db-setup"
+    container_name: "woken-db-setup"
+    environment:
+      - FLYWAY_DBMS=postgresql
+      - FLYWAY_HOST=db
+      - FLYWAY_PORT=5432
+      - FLYWAY_DATABASE_NAME=woken
+      - FLYWAY_USER=woken
+      - FLYWAY_PASSWORD=woken
+    links:
+     - "woken_db:db"
+
+  woken_db_check:
+    image: "lren/pgtap:0.96.0"
+    container_name: "woken-db-check"
+    command: "-h db -p 5432 -u woken -w woken -d db -t '/test/*.sql'"
+    volumes:
+      - ./sql:/test
+    links:
+      - "woken_db:db"
