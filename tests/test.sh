@@ -24,5 +24,17 @@ fi
 
 $DOCKER_COMPOSE up -d woken_db
 $DOCKER_COMPOSE run wait_dbs
+
+echo
+echo "Test initial database migration"
 $DOCKER_COMPOSE run woken_db_setup
 $DOCKER_COMPOSE run woken_db_check
+
+echo
+echo "Test idempotence"
+$DOCKER_COMPOSE run woken_db_setup
+$DOCKER_COMPOSE run woken_db_check
+
+# Cleanup
+echo
+$DOCKER_COMPOSE rm -f > /dev/null 2> /dev/null
