@@ -32,7 +32,7 @@ services:
      - "woken_db:db"
 
   woken_db_check:
-    image: "lren/pgtap:0.96.0-1"
+    image: "lren/pgtap:0.96.0-2"
     container_name: "woken-db-check"
     environment:
       - HOST=db
