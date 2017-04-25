@@ -31,9 +31,14 @@ services:
      - "woken_db:db"
 
   woken_db_check:
-    image: "lren/pgtap:0.96.0"
+    image: "lren/pgtap:0.96.0-1"
     container_name: "woken-db-check"
-    command: "-h db -p 5432 -u woken -w woken -d db -t '/test/*.sql'"
+    environment:
+      - HOST=db
+      - PORT=5432
+      - DATABASE=woken
+      - USER=woken
+      - PASSWORD=woken
     volumes:
       - ./sql:/test
     links:
