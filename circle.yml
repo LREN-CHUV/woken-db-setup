@@ -2,7 +2,6 @@ machine:
   pre:
     - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
     - curl -sSL https://raw.githubusercontent.com/harbur/captain/v1.1.0/install.sh | bash
-    - ln -s /root/.captain/bin/captain /usr/local/bin/captain
   services:
     - docker
 
@@ -12,8 +11,8 @@ dependencies:
     - docker info
     - pip install --upgrade pip
     - pip install docker-compose==1.8.1
-    - ./build.sh
+    - PATH=$PATH:/root/.captain/bin/captain ./build.sh
 
 test:
   override:
-    - ./tests/test.sh
+    - PATH=$PATH:/root/.captain/bin/captain ./tests/test.sh
