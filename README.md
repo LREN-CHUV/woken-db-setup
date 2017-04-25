@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://github.com/LREN-CHUV/woken-db-setup/blob/master/LICENSE)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9adcf4cbd730472386d0e71ab27b9b6b)](https://www.codacy.com/app/mirco-nasuti/woken-db-setup?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LREN-CHUV/woken-db-setup&amp;utm_campaign=Badge_Grade)
-[![CircleCI](https://circleci.com/gh/LREN-CHUV/woken-db-setup.svg?style=svg)](https://circleci.com/gh/LREN-CHUV/woken-db-setup) [![CHUV](https://img.shields.io/badge/CHUV-LREN-AF4C64.svg)](https://www.unil.ch/lren/en/home.html) [![CHUV](https://img.shields.io/badge/CHUV-LREN-AF4C64.svg)](https://www.unil.ch/lren/en/home.html)
+[![CircleCI](https://circleci.com/gh/LREN-CHUV/woken-db-setup.svg?style=svg)](https://circleci.com/gh/LREN-CHUV/woken-db-setup) [![CHUV](https://img.shields.io/badge/CHUV-LREN-AF4C64.svg)](https://www.unil.ch/lren/en/home.html)
 
 # Setup for database 'woken-db'
 
@@ -12,7 +12,7 @@ This project uses Flyway to manage the database migration scripts for the 'woken
 
 Run:
 ```console
-$ docker run -i -t --rm -e FLYWAY_DBMS=postgres -e FLYWAY_HOST=`hostname` hbpmip/woken-db-setup:1.0.0 migrate
+$ docker run -i -t --rm -e FLYWAY_DBMS=postgres -e FLYWAY_HOST=`hostname` hbpmip/woken-db-setup:0.9.0 migrate
 ```
 
 where the environment variables are:

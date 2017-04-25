@@ -8,15 +8,10 @@ dependencies:
   override:
     - docker version
     - docker info
-    - docker build --rm=false -t lren/flyway:4.1.2 .
+    - pip install --upgrade pip
+    - pip install docker-compose==1.8.1
+    - ./build.sh
 
 test:
   override:
-    - docker run -i -t lren/flyway:4.1.2 "" || true
-
-#deployment:
-#  hub:
-#    branch: master
-#    commands:
-#      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-#      - docker push lren/flyway:4.1.2
+    - ./tests/test.sh
