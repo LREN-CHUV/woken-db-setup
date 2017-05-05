@@ -37,4 +37,5 @@ $DOCKER_COMPOSE run woken_db_check
 
 # Cleanup
 echo
+$DOCKER_COMPOSE stop
 $DOCKER_COMPOSE rm -f > /dev/null 2> /dev/null
