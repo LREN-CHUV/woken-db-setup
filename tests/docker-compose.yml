@@ -32,7 +32,7 @@ services:
      - "woken_db:db"
 
   woken_db_check:
-    image: "hbpmip/pgtap:0.96.0-3"
+    image: "hbpmip/pgtap:0.96.0-5"
     container_name: "woken-db-check"
     environment:
       - HOST=db

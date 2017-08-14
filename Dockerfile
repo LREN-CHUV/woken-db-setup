@@ -1,4 +1,4 @@
-from hbpmip/flyway:4.2.0-4
+from hbpmip/flyway:4.2.0-5
 MAINTAINER Ludovic Claude <ludovic.claude@chuv.ch>
 
 ARG BUILD_DATE
