@@ -1,4 +1,4 @@
-woken_db_setup:
+target_image:
   build: Dockerfile
   image: hbpmip/woken-db-setup
   pre:

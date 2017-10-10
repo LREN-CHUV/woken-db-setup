@@ -20,7 +20,9 @@ if pgrep -lf sshuttle > /dev/null ; then
   exit 1
 fi
 
-if groups $USER | grep &>/dev/null '\bdocker\b'; then
+if [ $NO_SUDO ]; then
+  CAPTAIN="captain"
+elif groups $USER | grep &>/dev/null '\bdocker\b'; then
   CAPTAIN="captain"
 else
   CAPTAIN="sudo captain"
@@ -94,11 +96,11 @@ git push --tags
 
 # Push on Docker Hub
 #  WARNING: Requires captain 1.1.0 to push user tags
-BUILD_DATE=$(date --iso-8601=seconds) \
+BUILD_DATE=$(date -Iseconds) \
   VCS_REF=$updated_version \
   VERSION=$updated_version \
   WORKSPACE=$WORKSPACE \
-  $CAPTAIN push woken_db_setup --branch-tags=false --commit-tags=false --tag $updated_version
+  $CAPTAIN push target_image --branch-tags=false --commit-tags=false --tag $updated_version
 
 # Notify on slack
 sed "s/USER/${USER^}/" $WORKSPACE/slack.json > $WORKSPACE/.slack.json
