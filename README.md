@@ -1,5 +1,5 @@
 [![CHUV](https://img.shields.io/badge/CHUV-LREN-AF4C64.svg)](https://www.unil.ch/lren/en/home.html) [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://github.com/LREN-CHUV/woken-db-setup/blob/master/LICENSE)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9adcf4cbd730472386d0e71ab27b9b6b)](https://www.codacy.com/app/mirco-nasuti/woken-db-setup?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LREN-CHUV/woken-db-setup&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/29986afe800443f191339ef4a742afa6)](https://www.codacy.com/app/hbp-mip/woken-db-setup?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HBPMedical/woken-db-setup&amp;utm_campaign=Badge_Grade)
 [![CircleCI](https://circleci.com/gh/LREN-CHUV/woken-db-setup.svg?style=svg)](https://circleci.com/gh/LREN-CHUV/woken-db-setup)
 
 # Setup for database 'woken-db'
