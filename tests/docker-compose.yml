@@ -31,8 +31,11 @@ services:
     links:
      - "woken_db:db"
 
+  # Issues with volume mounting here, workaround by building an image including the sources
   woken_db_check:
-    image: "hbpmip/pgtap:0.96.0-5"
+    build:
+      context: .
+      dockerfile: Dockerfile.check
     container_name: "woken-db-check"
     environment:
       - HOST=db
@@ -40,7 +43,5 @@ services:
       - DATABASE=woken
       - USER=woken
       - PASSWORD=woken
-    volumes:
-      - ./sql:/test
     links:
       - "woken_db:db"

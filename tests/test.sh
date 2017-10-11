@@ -34,7 +34,8 @@ function _cleanup() {
 }
 trap _cleanup EXIT INT TERM
 
-$DOCKER_COMPOSE up -d woken_db
+$DOCKER_COMPOSE up -d --remove-orphans woken_db
+$DOCKER_COMPOSE build woken_db_check
 $DOCKER_COMPOSE run wait_dbs
 
 echo
