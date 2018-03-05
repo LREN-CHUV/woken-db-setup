@@ -1,4 +1,3 @@
-
 CREATE TABLE job_result
 (
   job_id character varying(128) NOT NULL,
@@ -8,8 +7,10 @@ CREATE TABLE job_result
   error character varying(256),
   shape character varying(256),
   function character varying(256),
+  result_name character varying(32) NOT NULL DEFAULT '',
+  result_title character varying(256),
 
-  CONSTRAINT pk_job_result PRIMARY KEY (job_id, node)
+  CONSTRAINT pk_job_result PRIMARY KEY (job_id, shape, result_name, node)
 )
 WITH (
   OIDS=FALSE
