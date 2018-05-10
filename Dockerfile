@@ -1,4 +1,4 @@
-from hbpmip/flyway:4.2.0-5
+FROM hbpmip/flyway:4.2.0-5
 MAINTAINER Ludovic Claude <ludovic.claude@chuv.ch>
 
 ARG BUILD_DATE
@@ -12,6 +12,7 @@ ENV FLYWAY_DBMS=postgresql \
     FLYWAY_SCHEMAS=public
 
 COPY sql/create.sql /flyway/sql/V1_0__create.sql
+COPY sql/V1_1__big_error_and_params.sql /flyway/sql/V1_1__big_error_and_params.sql
 
 WORKDIR /flyway
 CMD ["migrate"]
