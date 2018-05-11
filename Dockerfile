@@ -11,8 +11,10 @@ ENV FLYWAY_DBMS=postgresql \
     FLYWAY_DATABASE_NAME=woken \
     FLYWAY_SCHEMAS=public
 
-COPY sql/create.sql /flyway/sql/V1_0__create.sql
-COPY sql/V1_1__big_error_and_params.sql /flyway/sql/V1_1__big_error_and_params.sql
+COPY sql/V1_0__create.sql \
+     sql/V1_1__big_error_and_params.sql \
+     sql/V1_2__multiple_results.sql \
+       /flyway/sql/
 
 WORKDIR /flyway
 CMD ["migrate"]
