@@ -12,7 +12,7 @@ This project uses Flyway to manage the database migration scripts for the 'woken
 
 Run:
 ```console
-$ docker run -i -t --rm -e FLYWAY_DBMS=postgres -e FLYWAY_HOST=`hostname` hbpmip/woken-db-setup:1.2.1 migrate
+$ docker run -i -t --rm -e FLYWAY_DBMS=postgres -e FLYWAY_HOST=`hostname` hbpmip/woken-db-setup:1.2.2 migrate
 ```
 
 where the environment variables are:
