@@ -14,7 +14,7 @@ ENV FLYWAY_DBMS=postgresql \
 COPY sql/V1_0__create.sql \
      sql/V1_1__big_error_and_params.sql \
      sql/V1_2__multiple_results.sql \
-     sql/V1_3__gen_features_tables_seq.sql \
+     sql/V1_3__gen_features_table_seq.sql \
        /flyway/sql/
 
 WORKDIR /flyway
