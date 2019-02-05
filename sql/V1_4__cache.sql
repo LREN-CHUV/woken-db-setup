@@ -2,7 +2,7 @@ CREATE TABLE "results_cache"
 (
   "node" character varying(32) NOT NULL,
   "table_name" character varying(128) NOT NULL,
-  "table_contents_hash" character varying(128),
+  "table_contents_hash" character varying(256),
   "query" jsonb NOT NULL,
   "created_at" timestamp default now(),
   "last_used" timestamp,
