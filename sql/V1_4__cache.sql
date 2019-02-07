@@ -10,7 +10,7 @@ CREATE TABLE "results_cache"
   "shape" character varying(256),
   "function" character varying(256),
 
-  CONSTRAINT pk_results_cache PRIMARY KEY ("node", "table_name", "table_contents_hash", "query")
+  CONSTRAINT pk_results_cache PRIMARY KEY ("node", "table_name", "table_contents_hash", "query", "shape", "function")
 )
 WITH (
   OIDS=FALSE
