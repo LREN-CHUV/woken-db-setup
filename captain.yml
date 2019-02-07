@@ -1,9 +1,0 @@
-target_image:
-  build: Dockerfile
-  image: hbpmip/woken-db-setup
-  pre:
-    - echo "Building hbpmip/woken-db-setup image"
-  post:
-    - echo "Finished building hbpmip/woken-db-setup image"
-  test:
-    - ./tests/test.sh

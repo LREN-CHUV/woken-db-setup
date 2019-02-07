@@ -1,9 +1,4 @@
 FROM hbpmip/flyway:5.1.4-0
-MAINTAINER Ludovic Claude <ludovic.claude@chuv.ch>
-
-ARG BUILD_DATE
-ARG VCS_REF
-ARG VERSION
 
 ENV FLYWAY_DBMS=postgresql \
     FLYWAY_HOST=db \
@@ -20,6 +15,10 @@ COPY sql/V1_0__create.sql \
 
 WORKDIR /flyway
 CMD ["migrate"]
+
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.name="hbpmip/woken-db-setup" \
