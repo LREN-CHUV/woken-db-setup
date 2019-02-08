@@ -12,7 +12,7 @@ SELECT has_column( 'job_result', 'data' );
 
 SELECT has_table( 'results_cache' );
 
-SELECT has_column( 'results_cache', 'job_id' );
+SELECT has_column( 'results_cache', 'table_name' );
 SELECT has_column( 'results_cache', 'node' );
 SELECT has_column( 'results_cache', 'data' );
 
