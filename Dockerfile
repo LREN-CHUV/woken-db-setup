@@ -1,4 +1,4 @@
-FROM hbpmip/flyway:5.1.4-0
+FROM hbpmip/flyway:5.2.4-0
 
 ENV FLYWAY_DBMS=postgresql \
     FLYWAY_HOST=db \
